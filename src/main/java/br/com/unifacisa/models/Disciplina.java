@@ -1,10 +1,12 @@
 package br.com.unifacisa.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Disciplina {
 
+	@Id
 	private String id;
 	
 	private String nome;
