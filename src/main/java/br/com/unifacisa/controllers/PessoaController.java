@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.unifacisa.models.Disciplina;
 import br.com.unifacisa.models.Pessoa;
 import br.com.unifacisa.services.PessoaService;
 
@@ -50,6 +51,11 @@ public class PessoaController {
 	public void delete(@PathVariable String id) {
 		service.delete(id);
 		ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("/{id}/disciplina")
+	public ResponseEntity<Disciplina> save(@PathVariable String id, @RequestBody Disciplina obj) throws NotFoundException {
+		return new ResponseEntity<Disciplina>(service.save(id,obj), HttpStatus.CREATED);
 	}
 
 }
